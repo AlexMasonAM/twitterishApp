@@ -7,4 +7,7 @@ class User
   field :url, type: String
   field :joined_at, type: Time
   field :verified, type: Mongoid::Boolean
+
+  validates :username, length: { in: 4..20 }
+  validates :name, presence: true
 end
