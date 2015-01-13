@@ -1,7 +1,18 @@
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #555;
+@import 'variables';
 
 body {
   font: 100% $font-stack;
   color: $primary-color;
+}
+
+#users {
+  .user {
+    border: 1px solid $primary-color;
+    border-radius: 2px;
+    padding: 10px;
+    margin: 10px;
+  }
+  th {
+    color: #5A5A5A;
+  }
 }
