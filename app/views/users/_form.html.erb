@@ -15,10 +15,18 @@
     <%= f.label :username %><br>
     <%= f.text_field :username %>
   </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
-  </div>
+
+  <% if @user.new_record? %>
+    <div class="field">
+      <%= f.label :password %><br>
+      <%= f.password_field :password %>
+    </div>
+  <% else %>
+    <p>
+      <%= link_to "Change Password Here", change_password_path(@user) %>
+    </p>
+  <% end %>  
+
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -33,7 +41,7 @@
   </div>
 <!--   <div class="field">
     <%= f.label :joined_at %><br>
-    <%= f.datetime_select :joined_at %>
+    <%= f.datetime_select :joined_at, value: Time.now %>
   </div> -->
   <div class="field">
     <%= f.label :verified %><br>

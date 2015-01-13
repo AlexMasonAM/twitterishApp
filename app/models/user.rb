@@ -8,6 +8,13 @@ class User
   field :joined_at, type: Time
   field :verified, type: Mongoid::Boolean
 
-  validates :username, length: { in: 4..20 }
+  validates :username, length: { in: 4..20 }, uniqueness: true
   validates :name, presence: true
+
+  before_create :make_username_friendly
+
+  def make_username_friendly
+    self.username = self.username.strip.gsub(" ", "_")
+  end
+
 end

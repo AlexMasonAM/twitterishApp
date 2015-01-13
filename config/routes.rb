@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :users
+    get "users/:id/change_password" => "users#change_password", as: :change_password
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -55,4 +58,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+
